@@ -17,7 +17,10 @@ Clarifai.tagURL(testURLs, testIDs, function(err, res){
 				console.log("Image: " + res.results[i].local_id);
 				console.log();
 			  for(var j in tags.classes){
-			    console.log(tags.classes[j] + ': ' + tags.probs[j]);
+					var prob = tags.probs[j];
+					prob *= 100;
+					prob += '%';
+			    console.log(tags.classes[j] + ': ' + prob);
 			  }
 			}
 	  }
